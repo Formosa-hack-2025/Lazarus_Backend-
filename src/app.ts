@@ -4,8 +4,8 @@ import express from "express";
 import morgan from "morgan";
 import session from "express-session";
 import cultivosRouter from "agricultura/routers/cultivos.route";
-
 import { userRoutes } from "users/routes/user.routes";
+import chatRouter from "chatbot/routers/chatRouter";
 
 const app = express();
 app.use(
@@ -25,6 +25,7 @@ app.use(express.json());
 app.use("/api", userRoutes);
 app.use("/api", authRoutes);
 app.use("/api", cultivosRouter);
+app.use("/api", chatRouter);
 
 app.listen(3000, async () => {
   console.log("the server is runing in the port ");

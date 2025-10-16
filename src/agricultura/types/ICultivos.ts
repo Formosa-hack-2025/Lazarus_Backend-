@@ -14,6 +14,7 @@ export interface ICultivo {
   fertilizacion_tipo?: string;
   costo_semillas: number;
   fecha_estimada_de_cosecha: string;
+  precio_fertilizante: number;
 
   // 🌿 ETAPA INTERMEDIA
   tipo_riego?: string;

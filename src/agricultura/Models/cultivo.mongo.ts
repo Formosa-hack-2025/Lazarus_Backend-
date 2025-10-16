@@ -15,6 +15,7 @@ const CultivoSchema = new Schema<ICultivo>({
   fertilizacion_tipo: { type: String },
   costo_semillas: { type: Number, required: true },
   fecha_estimada_de_cosecha: { type: String, require: true },
+  precio_fertilizante: { type: Number, required: true },
 
   // 🌿 ETAPA INTERMEDIA
   tipo_riego: { type: String },

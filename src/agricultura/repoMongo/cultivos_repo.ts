@@ -13,8 +13,8 @@ export class repoMongo implements ICultivosRepo {
     return await CultivoModel.find({ idUser: id });
   }
 
-  async create(element: ICultivo): Promise<ICultivoMongo> {
-    const result = new CultivoModel(element);
+  async create(element: ICultivo, id: string): Promise<ICultivoMongo> {
+    const result = new CultivoModel({ ...element, idUser: id });
     return await result.save();
   }
   async Delete(id: any): Promise<void> {

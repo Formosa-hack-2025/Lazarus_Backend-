@@ -3,15 +3,17 @@ import { CultivoService } from "agricultura/Service/cultivos.Service";
 import { ICultivo } from "agricultura/types/ICultivos";
 import { Request, Response } from "express";
 import mongoose from "mongoose";
+import { id } from "zod/v4/locales";
 
 const RepoMongo = new repoMongo();
 const RepoService = new CultivoService(RepoMongo);
 
-export const createBasic = async (req: Request, res: Response) => {
+export const createCultivo = async (req: Request, res: Response) => {
   try {
     const element: ICultivo = req.body;
+    const idUser = req.user?.id;
 
-    const result = await RepoService.create(element);
+    const result = await RepoService.create(element, idUser);
 
     if (!result) {
       res.status(304).json({ msg: "element no created" });
@@ -24,7 +26,7 @@ export const createBasic = async (req: Request, res: Response) => {
     res.status(500).json({ msg: "the internal server erro" });
   }
 };
-export const findAll = async (req: Request, res: Response) => {
+export const findAllCultivo = async (req: Request, res: Response) => {
   try {
     const id = req.user?.id;
     const idValid = new mongoose.Types.ObjectId(id as string);
@@ -38,7 +40,7 @@ export const findAll = async (req: Request, res: Response) => {
     res.status(500).json({ msg: "the internal server erro" });
   }
 };
-export const findByID = async (req: Request, res: Response) => {
+export const findByIDCultivo = async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
     const result = await RepoService.findByID(id);
@@ -51,7 +53,7 @@ export const findByID = async (req: Request, res: Response) => {
     res.status(500).json({ msg: "the internal server erro" });
   }
 };
-export const update = async (req: Request, res: Response) => {
+export const updateCultivo = async (req: Request, res: Response) => {
   try {
     const element: ICultivo = req.body;
     const id = req.params.id;
@@ -66,7 +68,7 @@ export const update = async (req: Request, res: Response) => {
     res.status(500).json({ msg: "the internal server erro" });
   }
 };
-export const deleteAll = async (req: Request, res: Response) => {
+export const deleteAllCultivo = async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
 

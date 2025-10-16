@@ -6,8 +6,8 @@ import { Types } from "mongoose";
 export class CultivoService implements ICultivosRepo {
   constructor(private readonly mongorepo: ICultivosRepo) {}
 
-  async create(element: ICultivo): Promise<ICultivoMongo> {
-    return await this.mongorepo.create(element);
+  async create(element: ICultivo, id: string): Promise<ICultivoMongo> {
+    return await this.mongorepo.create(element, id);
   }
 
   async findAll(id: Types.ObjectId): Promise<ICultivo[]> {

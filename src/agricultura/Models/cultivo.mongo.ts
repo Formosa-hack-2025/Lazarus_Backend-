@@ -14,6 +14,7 @@ const CultivoSchema = new Schema<ICultivo>({
   tipo_suelo: { type: String },
   fertilizacion_tipo: { type: String },
   costo_semillas: { type: Number, required: true },
+  fecha_estimada_de_cosecha: { type: String, require: true },
 
   // 🌿 ETAPA INTERMEDIA
   tipo_riego: { type: String },
@@ -21,7 +22,7 @@ const CultivoSchema = new Schema<ICultivo>({
   pesticidas: { type: String },
   pesticida_fecha_aplicacion: { type: String },
   pesticida_costo_por_aplicacion: { type: Number },
-  plagas_o_onfermedades: { type: String, required: true },
+  plagas_o_onfermedades: { type: String },
 
   // 🌾 FINALIZACIÓN DE CULTIVO
   fecha_cosecha: { type: String },

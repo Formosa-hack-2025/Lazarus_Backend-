@@ -13,6 +13,7 @@ export interface ICultivo {
   tipo_suelo?: string;
   fertilizacion_tipo?: string;
   costo_semillas: number;
+  fecha_estimada_de_cosecha: string;
 
   // 🌿 ETAPA INTERMEDIA
   tipo_riego?: string;
@@ -68,4 +69,5 @@ export interface ICultivoMongo extends Document {
   costo_gasoil?: number;
   ingresos_por_venta?: number;
   margen_bruto?: number;
+  fecha_estimada_de_cosecha: string;
 }

@@ -1,6 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
+
+
 declare module 'express-session' {
     interface SessionData {
         user?: { id: string; rol: string };

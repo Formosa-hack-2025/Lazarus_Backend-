@@ -1,4 +1,4 @@
-import { repoMongo } from "Crud_basic/repoMongo/basis_mongo_repo";
+import { repoMongo } from "agricultura/repoMongo/cultivos_repo";
 import { CultivoService } from "agricultura/Service/cultivos.Service";
 import { ICultivo } from "agricultura/types/ICultivos";
 import { Request, Response } from "express";
@@ -55,10 +55,12 @@ export const findByIDCultivo = async (req: Request, res: Response) => {
 };
 export const updateCultivo = async (req: Request, res: Response) => {
   try {
+    console.log(req.body)
     const element: ICultivo = req.body;
     const id = req.params.id;
 
     const result = await RepoService.update(element, id);
+    console.log(result)
     if (!result) {
       res.status(304).json({ msg: "element not found" });
     }

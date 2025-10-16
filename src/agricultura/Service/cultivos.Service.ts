@@ -4,7 +4,7 @@ import { ICultivoMongo } from "agricultura/types/ICultivos";
 import { Types } from "mongoose";
 
 export class CultivoService implements ICultivosRepo {
-  constructor(private readonly mongorepo: ICultivosRepo) {}
+  constructor(private readonly mongorepo: ICultivosRepo) { }
 
   async create(element: ICultivo, id: string): Promise<ICultivoMongo> {
     return await this.mongorepo.create(element, id);
@@ -19,7 +19,7 @@ export class CultivoService implements ICultivosRepo {
   }
 
   async update(element: Partial<ICultivo>, id: any): Promise<ICultivo | null> {
-    return await this.mongorepo.update(element, id);
+    return await this.mongorepo.update(id, element);
   }
 
   async Delete(id: any): Promise<void> {

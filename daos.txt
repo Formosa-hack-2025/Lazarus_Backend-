@@ -1,0 +1,23 @@
+!!!!!!
+{
+  "marca_de_dueño": "ARG-12345",
+  "raza": "Aberdeen Angus",
+  "sexo": "Hembra",
+  "edad": 4,
+  "vacunaciones": {
+    "nombre": "Fiebre Aftosa",
+    "fecha": "2025-03-12T00:00:00.000Z",
+    "proxima": "2026-03-12T00:00:00.000Z",
+    "docis": 2
+  },
+  "antiparacitario": 2,
+  "vitaminas": "Vitamina A, D y E",
+  "entrada_pastoreo": "2025-09-01T08:00:00.000Z",
+  "salida_pastore": "2025-09-30T18:00:00.000Z",
+  "total": 450,
+  "proposito": "reproductor",
+  "inicio_ciclo_celo": "2025-10-10T00:00:00.000Z",
+  "fin_ciclo_celo": "2025-10-15T00:00:00.000Z",
+  "horaIngresoMatadero": null,
+  "fecha_inicio_ayuno": null
+}

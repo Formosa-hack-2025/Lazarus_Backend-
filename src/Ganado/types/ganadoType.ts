@@ -15,6 +15,10 @@ export interface Iganado {
     readonly salida_pastore: Date,
     readonly total: number
     readonly proposito: "reproductor" | "matadero" | "cría";
+    readonly coordenadas: {
+        latitud: number;
+        longitud: number;
+    };
     readonly inicio_ciclo_celo?: Date,
     readonly fin_ciclo_celo?: Date,
     readonly isPregnant?: boolean,

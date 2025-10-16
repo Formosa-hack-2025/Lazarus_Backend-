@@ -60,6 +60,10 @@ const GanadoSchema = new Schema<Iganado>(
             enum: ["reproductor", "matadero", "cría"],
             required: true,
         },
+        coordenadas: {
+            latitud: { type: Number, required: false },
+            longitud: { type: Number, required: false },
+        },
         inicio_ciclo_celo: {
             type: Date,
         },

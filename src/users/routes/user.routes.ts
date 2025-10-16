@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { validateJWT } from "Middlewares/helpers/validateJWT";
-import { validarRol } from "Middlewares/helpers/validateRol";
+import { validateJWT } from "Middlewares/helpers-jaqueline/validateJWT";
+import { validarRol } from "Middlewares/helpers-jaqueline/validateRol";
+
 import { createUser } from "users/controllers/createUser.controllers";
 import { deleteUserControllers } from "users/controllers/DeleteUser.Controller";
 import { getAllUser, getUserByID } from "users/controllers/FindUser.Controller";

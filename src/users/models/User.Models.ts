@@ -16,7 +16,7 @@ const UserSchema = new Schema<IUser>({
     rol: {
         type: String,
         required: true,
-        enum: ["User", "admin"],
+        enum: ["Ganadero", "Agricultor", "Mixto", "admin"],
         default: "User"
     }
 })

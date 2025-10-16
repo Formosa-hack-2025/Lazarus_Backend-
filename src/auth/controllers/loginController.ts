@@ -1,6 +1,6 @@
 import { LoginService } from "auth/Services/Login.Service";
 import { Request, Response } from "express";
-import { generarJWT } from "Middlewares/helpers/generarJWT";
+import { generarJWT } from "Middlewares/helpers-jaqueline/generarJWT";
 import { FindByEmailMongo } from "users/mongoRepository/UserMongoRepo";
 import { IFindByEmail } from "users/repositories/FindByEmail";
 

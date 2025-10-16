@@ -30,3 +30,7 @@ En un archivo README.md en el proyecto se deberá incluir, como mínimo:  Ins
 backend, configuración de variables de entorno, etc.  Justificación técnica: explicación detallada de las decisiones tomadas respecto a:  Diseño de relaciones entre entidades.  Organización de carpetas.  Propiedades relevantes elegidas para cada entidad.  Elección de librerías o patrones de arquitectura. 
 Criterios de Evaluación:
 1. Correcta implementación de JWT y sistema de roles. 2. Modularización adecuada (separación de controladores, servicios, entidades, helpers).
+
+
+
+

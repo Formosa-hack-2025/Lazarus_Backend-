@@ -26,7 +26,7 @@ app.use("/api", userRoutes);
 app.use("/api", authRoutes);
 app.use("/api", cultivosRouter);
 
-app.listen(3000, async () => {
+app.listen(3402, async () => {
   console.log("the server is runing in the port ");
   await connections();
 });

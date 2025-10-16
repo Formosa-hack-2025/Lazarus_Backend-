@@ -20,7 +20,7 @@ export class repoMongo implements ICultivosRepo {
   async Delete(id: any): Promise<void> {
     await CultivoModel.findByIdAndDelete(id);
   }
-  async update(element: Partial<ICultivo>): Promise<ICultivo | null> {
-    return await CultivoModel.findByIdAndUpdate(element);
+  async update(id: any, element: Partial<ICultivo>): Promise<ICultivo | null> {
+    return await CultivoModel.findByIdAndUpdate(id, element, { new: true });
   }
 }

@@ -6,12 +6,12 @@ import { Types } from "mongoose";
 export class CultivoService implements ICultivosRepo {
   constructor(private readonly mongorepo: ICultivosRepo) { }
 
-  async create(element: ICultivo, id: string): Promise<ICultivoMongo> {
-    return await this.mongorepo.create(element, id);
+  async create(element: ICultivo,): Promise<ICultivoMongo> {
+    return await this.mongorepo.create(element);
   }
 
-  async findAll(id: Types.ObjectId): Promise<ICultivo[]> {
-    return await this.mongorepo.findAll(id);
+  async findAll(): Promise<ICultivo[]> {
+    return await this.mongorepo.findAll();
   }
 
   async findByID(id: any): Promise<ICultivo[] | null> {

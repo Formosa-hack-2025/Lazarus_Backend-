@@ -9,12 +9,12 @@ export class repoMongo implements ICultivosRepo {
     return await CultivoModel.findById(id);
   }
 
-  async findAll(id: Types.ObjectId): Promise<ICultivo[]> {
-    return await CultivoModel.find({ idUser: id });
+  async findAll(): Promise<ICultivo[]> {
+    return await CultivoModel.find();
   }
 
-  async create(element: ICultivo, id: string): Promise<ICultivoMongo> {
-    const result = new CultivoModel({ ...element, idUser: id });
+  async create(element: ICultivo): Promise<ICultivoMongo> {
+    const result = new CultivoModel(element);
     return await result.save();
   }
   async Delete(id: any): Promise<void> {

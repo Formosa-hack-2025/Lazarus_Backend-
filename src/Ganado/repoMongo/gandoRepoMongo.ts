@@ -3,6 +3,7 @@ import { GanadoModel } from "Ganado/Models/ganado.Model";
 import { ICreateGanadoRepo } from "Ganado/repositories/CreateGanado.Repo";
 import { IDeleteGanadoRepo } from "Ganado/repositories/DeleteGanado.Repo";
 import { IfindGanadoRepo } from "Ganado/repositories/Find.repo";
+
 import { IUpdateGanadoRepo } from "Ganado/repositories/UpdateGanado.Repo";
 import { Iganado } from "Ganado/types/ganadoType";
 

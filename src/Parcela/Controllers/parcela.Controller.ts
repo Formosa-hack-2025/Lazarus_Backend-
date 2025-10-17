@@ -1,33 +1,29 @@
 import { Request, Response } from "express";
-import { CreateGanadoMongo, DeleteGanadoMongo, FindGanadoMongoRepo, UpdateGanadoMongo } from "Ganado/repoMongo/gandoRepoMongo";
-import { ICreateGanadoRepo } from "Ganado/repositories/CreateGanado.Repo";
-import { IDeleteGanadoRepo } from "Ganado/repositories/DeleteGanado.Repo";
-import { IfindGanadoRepo } from "Ganado/repositories/Find.repo";
-import { IUpdateGanadoRepo } from "Ganado/repositories/UpdateGanado.Repo";
-import { CreateGanadoService, DeleteGanadoService, FindGanadoService, UpdateGanado } from "Ganado/Service/Ganado.Service";
-import { Iganado } from "Ganado/types/ganadoType";
-import { createIdGenerator } from "utils/Services/calculoMarcaDueño";
+import { CreateParcelaMongo, DeleteParcelaMongo, FindParcelaMongoRepo, UpdateParcelaMongo } from "Parcela/repoMongo/ParcelaRepoMongo";
+import { ICreateParcelaRepo } from "Parcela/repositories/CreateParcela.Repo";
+import { IDeleteParcelaRepo } from "Parcela/repositories/DeleteGanado.Repo";
+import { IfindParcelaRepo } from "Parcela/repositories/Find.repo";
+import { IUpdateParcelaRepo } from "Parcela/repositories/UpdateGanado.Repo";
+import { CreateParcelaervice, DeleteParcelaService, FindParcelaService, UpdateParcelaService } from "Parcela/Service/Parcela.Service";
+import { IParcela } from "Parcela/types/parcelaType";
 
 
 
-const findganadoRepoMongo: IfindGanadoRepo = new FindGanadoMongoRepo()
-const findGanadoRepoService = new FindGanadoService(findganadoRepoMongo)
-const updateMongoRepo: IUpdateGanadoRepo = new UpdateGanadoMongo()
-const updateGanadoService = new UpdateGanado(updateMongoRepo)
-const creadetGanadoMogno: ICreateGanadoRepo = new CreateGanadoMongo()
-const createService = new CreateGanadoService(creadetGanadoMogno)
-const deleteGanadoMongoRepo: IDeleteGanadoRepo = new DeleteGanadoMongo()
-const deleteGanadoService = new DeleteGanadoService(deleteGanadoMongoRepo)
+const findParcelaRepoMongo: IfindParcelaRepo = new FindParcelaMongoRepo()
+const findGanadoRepoService = new FindParcelaService(findParcelaRepoMongo)
+const updateMongoRepo: IUpdateParcelaRepo = new UpdateParcelaMongo()
+const updateParcelaService = new UpdateParcelaService(updateMongoRepo)
+const creadetParcelaMogno: ICreateParcelaRepo = new CreateParcelaMongo()
+const createService = new CreateParcelaervice(creadetParcelaMogno)
+const deleteParcelaMongoRepo: IDeleteParcelaRepo = new DeleteParcelaMongo()
+const deleteParcelaService = new DeleteParcelaService(deleteParcelaMongoRepo)
 
 
-export const createGanado = async (req: Request, res: Response) => {
+export const createParcela = async (req: Request, res: Response) => {
     try {
-        const ganado: Iganado = req.body;
-        const marca = createIdGenerator();
-
-        const new_ganado = { ...ganado, "marca_de_dueño": marca };
-
-        const result = await createService.create(new_ganado)
+        const parcela: IParcela = req.body;
+        const result = await createService.create(parcela
+        )
         if (!result) {
             res.status(304).json({ msg: 'ganado  no created' })
         }
@@ -68,11 +64,11 @@ export const findByID = async (req: Request, res: Response) => {
 
 export const update = async (req: Request, res: Response) => {
     try {
-        const ganado: Iganado = req.body;
+        const parcela: IParcela = req.body;
         const id = req.params.id
         console.log(id
         )
-        const result = await updateGanadoService.update(id, ganado);
+        const result = await updateParcelaService.update(id, parcela);
         if (!result) {
             res.status(304).json({ msg: 'ganado not found' })
         }
@@ -82,11 +78,11 @@ export const update = async (req: Request, res: Response) => {
         res.status(500).json({ msg: 'the internal server erro' })
     }
 }
-export const deleteGanado = async (req: Request, res: Response) => {
+export const deleteParcela = async (req: Request, res: Response) => {
     try {
         const id = req.params.id
 
-        const result = await deleteGanadoService.Delete(id);
+        const result = await deleteParcelaService.Delete(id);
 
         res.status(200).json({ msg: 'elements', result })
     } catch (error) {

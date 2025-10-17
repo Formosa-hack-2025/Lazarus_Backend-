@@ -1,10 +1,10 @@
-import { Document, Types } from "mongoose";
+import { Document } from "mongoose";
 
 export interface ICultivo {
-  idUser: Types.ObjectId;
+
   // 🌱 INICIO DE PLANTACIÓN
   tipo_cultivo: string;
-  parcela: string;
+  parcela: any;
   fecha_cultivo: string;
   ph: number;
   cantidad_parcelas: number;
@@ -14,7 +14,6 @@ export interface ICultivo {
   fertilizacion_tipo?: string;
   costo_semillas: number;
   fecha_estimada_de_cosecha: string;
-  precio_fertilizante: number;
 
   // 🌿 ETAPA INTERMEDIA
   tipo_riego?: string;
@@ -42,10 +41,9 @@ export interface ICultivo {
 
 export interface ICultivoMongo extends Document {
   tipo_cultivo: string;
-  parcela: string;
+  parcela: any;
   fecha_cultivo: string;
   ph: number;
-  cantidad_parcelas: number;
   estado_parcela: string;
   cultivo_asignado: string;
   tipo_suelo?: string;

@@ -2,6 +2,7 @@
 
 import { Iganado } from "Ganado/types/ganadoType";
 import mongoose, { model, Schema } from "mongoose";
+import { tr } from "zod/v4/locales";
 
 
 
@@ -50,7 +51,7 @@ const GanadoSchema = new Schema<Iganado>(
             type: Date,
             required: true,
         },
-        total: {
+        total_vacas: {
             type: Number,
             required: true,
             min: 0,
@@ -63,6 +64,10 @@ const GanadoSchema = new Schema<Iganado>(
         coordenadas: {
             latitud: { type: Number, required: false },
             longitud: { type: Number, required: false },
+        },
+        total_vacas_vendidas: {
+            type: Number,
+            required: true
         },
         inicio_ciclo_celo: {
             type: Date,

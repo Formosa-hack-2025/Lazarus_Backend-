@@ -1,4 +1,4 @@
-import { Iganado } from "Crud_basic/types/ganadoType";
+import { Iganado } from "Ganado/types/ganadoType"
 
 
 export interface IfindGanadoRepo {

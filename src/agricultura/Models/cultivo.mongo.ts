@@ -2,20 +2,19 @@ import { Schema, Types, model } from "mongoose";
 import { ICultivo } from "agricultura/types/ICultivos";
 
 const CultivoSchema = new Schema<ICultivo>({
-  idUser: { type: Schema.ObjectId, ref: "Users" },
+
   // 🌱 INICIO DE PLANTACIÓN
   tipo_cultivo: { type: String, required: true },
-  parcela: { type: String, required: true },
+  parcela: {
+    type: Schema.Types.ObjectId,
+    ref: "Parcelas",
+    required: true
+  },
   fecha_cultivo: { type: String, required: true },
-  ph: { type: Number, required: true },
-  cantidad_parcelas: { type: Number, required: true },
-  estado_parcela: { type: String, required: true },
   cultivo_asignado: { type: String, required: true },
-  tipo_suelo: { type: String },
   fertilizacion_tipo: { type: String },
   costo_semillas: { type: Number, required: true },
   fecha_estimada_de_cosecha: { type: String, require: true },
-  precio_fertilizante: { type: Number, required: true },
 
   // 🌿 ETAPA INTERMEDIA
   tipo_riego: { type: String },

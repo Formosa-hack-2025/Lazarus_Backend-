@@ -11,9 +11,9 @@ const RepoService = new CultivoService(RepoMongo);
 export const createCultivo = async (req: Request, res: Response) => {
   try {
     const element: ICultivo = req.body;
-    const idUser = req.user?.id;
 
-    const result = await RepoService.create(element, idUser);
+
+    const result = await RepoService.create(element);
 
     if (!result) {
       res.status(304).json({ msg: "element no created" });
@@ -28,9 +28,8 @@ export const createCultivo = async (req: Request, res: Response) => {
 };
 export const findAllCultivo = async (req: Request, res: Response) => {
   try {
-    const id = req.user?.id;
-    const idValid = new mongoose.Types.ObjectId(id as string);
-    const result = await RepoService.findAll(idValid);
+
+    const result = await RepoService.findAll();
     if (!result) {
       res.status(304).json({ msg: "element not found" });
     }
@@ -55,11 +54,12 @@ export const findByIDCultivo = async (req: Request, res: Response) => {
 };
 export const updateCultivo = async (req: Request, res: Response) => {
   try {
+    console.log(req.body)
     const element: ICultivo = req.body;
     const id = req.params.id;
 
     const result = await RepoService.update(element, id);
-    console.log(result);
+    console.log(result)
     if (!result) {
       res.status(304).json({ msg: "element not found" });
     }

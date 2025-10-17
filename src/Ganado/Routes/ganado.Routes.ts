@@ -10,8 +10,8 @@ import { validarRol } from "utils/helpers/validateRol";
 export const ganadoRoutes = Router();
 
 
-ganadoRoutes.get("/ganado", validateJWT, validarRol("Ganadero"), findAll)
-ganadoRoutes.get("/ganado/:id", validateJWT, validarRol("Ganadero"), findByID)
-ganadoRoutes.post("/createGanado", validateJWT, validarRol("Ganadero"), createGanado);
-ganadoRoutes.put("/updateGanado/:id", validateJWT, validarRol("Ganadero"), update)
-ganadoRoutes.delete("/delete/:id", validateJWT, validarRol("Ganadero"), deleteGanado)
+ganadoRoutes.get("/ganado", validateJWT, validarRol("Ganadero", "admin", "Mixto"), findAll)
+ganadoRoutes.get("/ganado/:id", validateJWT, validarRol("Ganadero", "admin", "Mixto"), findByID)
+ganadoRoutes.post("/createGanado", createGanado);
+ganadoRoutes.put("/updateGanado/:id", validateJWT, validarRol("Ganadero", "admin", "Mixto"), update)
+ganadoRoutes.delete("/delete/:id", validateJWT, validarRol("Ganadero", "admin", "Mixto"), deleteGanado)

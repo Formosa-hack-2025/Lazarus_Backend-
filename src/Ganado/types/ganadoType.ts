@@ -13,16 +13,18 @@ export interface Iganado {
     readonly vitaminas: string,
     readonly entrada_pastoreo: Date,
     readonly salida_pastore: Date,
-    readonly total: number
+    readonly total_vacas: number
     readonly proposito: "reproductor" | "matadero" | "cría";
     readonly coordenadas: {
         latitud: number;
         longitud: number;
     };
+    total_vacas_vendidas: number,
     readonly inicio_ciclo_celo?: Date,
     readonly fin_ciclo_celo?: Date,
     readonly isPregnant?: boolean,
     readonly fechaProbableParto?: Date,
     readonly horaIngresoMatadero?: string,
     readonly fecha_inicio_ayuno?: Date,
+    readonly vacas_perdidas?: Number
 }

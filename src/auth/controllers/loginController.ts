@@ -43,3 +43,31 @@ export const login = async (req: Request, res: Response) => {
     res.status(500).json({ message: "internal server error", error });
   }
 };
+export const getMeCtrl = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const user_data = req.user
+    res.status(200).json({ msg: 'data', user_data });
+  } catch (error) {
+    res.status(500).json({ message: (error as Error).message });
+  }
+}
+
+//logout
+export const logout = async (req: Request, res: Response) => {
+  req.session.destroy((err) => {
+    try {
+      if (err) {
+        return res.status(500).json({ message: "error closing session" });
+      }
+      res.clearCookie("connect.sid");
+      res.clearCookie('token');
+
+      return res.json({ message: "Session closed successfully" });
+    } catch (error) {
+      console.log(error)
+      res.status(500).json({ message: "internal server error", error });
+    }
+
+
+  });
+}

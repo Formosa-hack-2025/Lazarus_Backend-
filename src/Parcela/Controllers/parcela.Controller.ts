@@ -6,6 +6,7 @@ import { IfindParcelaRepo } from "Parcela/repositories/Find.repo";
 import { IUpdateParcelaRepo } from "Parcela/repositories/UpdateGanado.Repo";
 import { CreateParcelaervice, DeleteParcelaService, FindParcelaService, UpdateParcelaService } from "Parcela/Service/Parcela.Service";
 import { IParcela } from "Parcela/types/parcelaType";
+import { evaluarSuelo } from "utils/Services/asignarEstadoSuelo";
 
 
 
@@ -22,12 +23,14 @@ const deleteParcelaService = new DeleteParcelaService(deleteParcelaMongoRepo)
 export const createParcela = async (req: Request, res: Response) => {
     try {
         const parcela: IParcela = req.body;
-        const result = await createService.create(parcela
-        )
+        parcela.estadoSuelo = evaluarSuelo(parcela.tipoSuelo, parcela.ph_suelo);
+
+        const result = await createService.create(parcela);
         if (!result) {
-            res.status(304).json({ msg: 'ganado  no created' })
+            return res.status(304).json({ msg: 'Parcela no creada' });
         }
-        res.status(201).json({ msg: 'ganado created', result })
+        res.status(201).json({ msg: 'Parcela creada', result });
+
 
     } catch (error) {
         console.log(error)

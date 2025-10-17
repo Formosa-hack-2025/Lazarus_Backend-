@@ -7,6 +7,8 @@ import cultivosRouter from "agricultura/routers/cultivos.route";
 import { userRoutes } from "users/routes/user.routes";
 import chatRouter from "chatbot/routers/chatRouter";
 import { metricRouter } from "agricultura/routers/metric.route";
+import { ganadoRoutes } from "Ganado/Routes/ganado.Routes";
+import { parcelaRoutes } from "Parcela/Routes/parcela.Routes";
 
 const app = express();
 app.use(
@@ -26,6 +28,8 @@ app.use(express.json());
 app.use("/api", userRoutes);
 app.use("/api", authRoutes);
 app.use("/api", cultivosRouter);
+app.use("/api", ganadoRoutes);
+app.use("/api", parcelaRoutes)
 app.use("/api", chatRouter);
 app.use("/api", metricRouter);
 

@@ -6,5 +6,5 @@ export interface IParcela {
         longitud: number;
     };
     readonly tipoSuelo: string,
-    readonly estadoSuelo: string
+    estadoSuelo: string
 }
